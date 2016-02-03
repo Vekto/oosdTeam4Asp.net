@@ -28,20 +28,21 @@
                 <img alt="" class="logo" src="Images/logo.jpg" />   
                 <p>Experts in experience design.</p>
              </div>
-              <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <asp:HyperLink class="navbar-brand" id="HyperLink5" runat="server" href="#">Travel Experts</asp:HyperLink>
+                        <asp:HyperLink class="navbar-brand" id="HyperLinkGreet" runat="server">Travel Experts</asp:HyperLink>
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li> <asp:HyperLink ID="HyperLink1" runat="server">Register</asp:HyperLink></li>                        
-                        <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li> 
-                        <li> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li> 
+                        <li> <asp:HyperLink ID="HyperLinkRegister" runat="server">Register</asp:HyperLink></li>                        
+                        <li><asp:HyperLink ID="HyperLinkPurchases" runat="server">My Purchases</asp:HyperLink></li> 
+                        <li> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkLogOut" runat="server" NavigateUrl="LogOut.aspx">Log Out</asp:HyperLink></li>
                       
                     </ul>
                 </div>
-            </nav> 
+            </nav>    
 
           <%--  <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->

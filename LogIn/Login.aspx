@@ -35,7 +35,7 @@
         <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">                     
-                        <asp:HyperLink class="navbar-brand" ID="HyperLink4" runat="server" NavigateUrl="~/Index.aspx">Travel Experts</asp:HyperLink>
+                        <asp:HyperLink class="navbar-brand" ID="HyperLinkGreet" runat="server">Travel Experts</asp:HyperLink>
                     </div>
                     <ul class="nav navbar-nav">    
                         <%--<li><a href="~/Index.aspx">Home</a></li>  --%> 
@@ -50,7 +50,6 @@
             <form id="form1" runat="server">
                 
                     <br />
-                   
                     <br />
                     <asp:TextBox ID="txtEmail" runat="server" Width="279px" ForeColor="Red"></asp:TextBox>
                     <br />
