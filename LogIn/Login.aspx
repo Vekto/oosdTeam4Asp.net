@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-  
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
@@ -37,7 +37,7 @@
                         <%--<li><a href="~/Index.aspx">Home</a></li>  --%> 
                         <li> <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li> 
                         <li> <asp:HyperLink ID="HyperLinkRegister" runat="server">Register</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li> 
                         <li class="active"> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx" OnClick="HyperLinkLogin_Click">Login</asp:HyperLink></li>
                          
                     </ul>

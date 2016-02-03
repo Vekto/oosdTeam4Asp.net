@@ -17,9 +17,9 @@
             width: 600px;
             height: 192px;
         }        
-
     </style>
 </head>
+
 <body style="height: 561px">   
         <form id="form1" runat="server">
         <div class="container">
@@ -28,7 +28,6 @@
                 <img alt="" class="logo" src="Images/logo.jpg" />   
                 <p>Experts in experience design.</p>
              </div>
-
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
