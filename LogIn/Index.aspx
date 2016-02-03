@@ -37,7 +37,7 @@
                         <li class="active"><a href="#">Home</a></li>
                         <li> <asp:HyperLink ID="HyperLinkRegister" NavigateUrl="Register.aspx" runat="server" >Register</asp:HyperLink></li>
                         <li> <asp:HyperLink ID="HyperLinkAccount" runat="server" >Account</asp:HyperLink></li>                         
-                        <li><asp:HyperLink ID="HyperLinkPurchases" runat="server">My Purchases</asp:HyperLink></li> 
+                        <li><asp:HyperLink ID="HyperLinkPurchases" NavigateUrl="Bookings.aspx" runat="server">My Purchases</asp:HyperLink></li> 
                         <li> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
                         <li> <asp:HyperLink ID="HyperLinkLogOut" runat="server" NavigateUrl="LogOut.aspx">Log Out</asp:HyperLink></li>
                       
