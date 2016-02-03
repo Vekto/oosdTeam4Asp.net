@@ -14,9 +14,9 @@ public partial class _Default : System.Web.UI.Page
 
     public bool ValidateLogin()
     {
-
-        string connectionString = "Data Source=localhost\\SAIT;Initial Catalog=TravelExperts;Integrated Security=True";
-        SqlConnection connection = new SqlConnection(connectionString);
+        //string connectionString = "Data Source=localhost\\SAIT;Initial Catalog=TravelExperts;Integrated Security=True";
+        //SqlConnection connection = new SqlConnection(connectionString);
+        SqlConnection connection = TravelExpertsDB.GetConnection();
 
         //sql select statement
         string selectStatement = "SELECT CustomerId, CustFirstName, CustLastName " +

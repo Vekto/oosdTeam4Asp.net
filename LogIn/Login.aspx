@@ -37,7 +37,7 @@
                         <%--<li><a href="~/Index.aspx">Home</a></li>  --%> 
                         <li> <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li> 
                         <li> <asp:HyperLink ID="HyperLinkRegister" NavigateUrl="Register.aspx" runat="server">Register</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li> 
+                        <li><asp:HyperLink ID="HyperLink3" NavigateUrl="Bookings.aspx" runat="server">My Purchases</asp:HyperLink></li> 
                         <li class="active"> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx" OnClick="HyperLinkLogin_Click">Login</asp:HyperLink></li>
                          
                     </ul>
