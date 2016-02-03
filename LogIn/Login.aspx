@@ -39,10 +39,10 @@
                     </div>
                     <ul class="nav navbar-nav">    
                         <%--<li><a href="~/Index.aspx">Home</a></li>  --%> 
-                        <li> <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Index.aspx">Home</asp:HyperLink></li> 
-                        <li> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Register.aspx">Register</asp:HyperLink></li>
-                        <li class="active"> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Default.aspx">Login</asp:HyperLink></li> 
+                        <li> <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li> 
+                        <li> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Register.aspx">Register</asp:HyperLink></li> 
                         <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li> 
+                        <li class="active"> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
                     </ul>
                 </div>
             </nav>  
