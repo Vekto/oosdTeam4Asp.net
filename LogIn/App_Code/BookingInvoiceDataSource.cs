@@ -9,19 +9,19 @@ using System.Data.SqlClient;
 
 public static class BookingInvoiceDataSource
 {
-    private static SqlConnection GetConnection()
-    {
-        return
-            new SqlConnection(
-                @"Data Source=GENGHIS-EDU\SQLEXPRESS2012;Initial Catalog=TravelExperts;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-    }
+    //private static SqlConnection GetConnection()
+    //{
+    //    return
+    //        new SqlConnection(
+    //            @"Data Source=GENGHIS-EDU\SQLEXPRESS2012;Initial Catalog=TravelExperts;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+    //}
 
     public static IEnumerable<BookingInvoice> GetInvoicesOfCustomer(int id)
     {
         // Note: Assuming date values are never null, even though technically they can be.
         //       Database should be updated to disallow null dates.
 
-        using (var conn = GetConnection())
+        using (var conn = TravelExpertsDB.GetConnection())
         {
             const string sql =
                 "SELECT bd.BookingDetailId, b.BookingDate, b.BookingNo, b.TravelerCount, t.TTName, bd.TripStart, bd.TripEnd, bd.[Description], bd.Destination, bd.BasePrice, bd.AgencyCommission, f.FeeName, f.FeeAmt" +
