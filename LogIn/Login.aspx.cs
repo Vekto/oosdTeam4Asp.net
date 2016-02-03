@@ -11,6 +11,8 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        
+
     }
 
     public bool ValidateLogin()
@@ -37,7 +39,6 @@ public partial class _Default : System.Web.UI.Page
                 Session["CustFirstName"] = reader["CustFirstName"].ToString();
                 Session["CustLastName"]= reader["CustLastName"].ToString();
                 Session["LoggedIn"] = "true";
-
             }
         }
         catch (SqlException ex)
@@ -53,26 +54,22 @@ public partial class _Default : System.Web.UI.Page
 
     public void SuccessTest()
     {
-        lblTest.Text = (string)(Session["CustomerID"]);        
+        lblTest.Text = (string)(Session["CustomerID"]);                
     }
-
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         if( txtEmail.Text.Trim() != "" && txtPassword.Text.Trim() != "")
         {
-            ValidateLogin();
+            ValidateLogin(); //validates that login credentials match, sets session variables
             SuccessTest();
+            //Server.Transfer("~/LogIn/Index.aspx");
+            Response.Redirect("~/LogIn/Index.aspx");
         }
         else
         {
-            lblTest.Text = "Please fill in all fields";
+            lblTest.Text = "Please fill in all fields";           
         }
-    }
-
-
-
-
-
+    }    
 }
 
