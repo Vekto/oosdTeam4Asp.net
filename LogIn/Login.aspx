@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 
@@ -40,7 +40,7 @@
                     <ul class="nav navbar-nav">    
                         <%--<li><a href="~/Index.aspx">Home</a></li>  --%> 
                         <li> <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Index.aspx">Home</asp:HyperLink></li> 
-                        <li> <asp:HyperLink ID="HyperLink1" runat="server">Register</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Register.aspx">Register</asp:HyperLink></li>
                         <li class="active"> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Default.aspx">Login</asp:HyperLink></li> 
                         <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li> 
                     </ul>
