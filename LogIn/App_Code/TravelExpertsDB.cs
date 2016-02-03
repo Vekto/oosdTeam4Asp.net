@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+﻿using System.Data.SqlClient;
+// ReSharper disable All
 
-/// <summary>
-/// Summary description for TravelExpertsDB
-/// </summary>
-public class TravelExpertsDB
+public static class TravelExpertsDB
 {
-    public TravelExpertsDB()
-    {
-    }
-
     public static SqlConnection GetConnection()
     {
         string connectionString =
