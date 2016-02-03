@@ -36,7 +36,7 @@
                     <ul class="nav navbar-nav">    
                         <%--<li><a href="~/Index.aspx">Home</a></li>  --%> 
                         <li> <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li> 
-                        <li> <asp:HyperLink ID="HyperLinkRegister" runat="server">Register</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkRegister" NavigateUrl="Register.aspx" runat="server">Register</asp:HyperLink></li>
                         <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li> 
                         <li class="active"> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx" OnClick="HyperLinkLogin_Click">Login</asp:HyperLink></li>
                          
@@ -49,13 +49,13 @@
                     <br />
                 <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Email:"></asp:Label>
-                    <asp:TextBox class="form-control" ID="txtEmail" runat="server" Width="279px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtEmail" runat="server" Width="279px"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <%--<br />--%>
                     <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
                     <br />
-                    <asp:TextBox class="form-control" ID="txtPassword" runat="server" Width="279px"></asp:TextBox>
+                    <asp:TextBox class="form-control" type="password" ID="txtPassword"  runat="server" Width="279px"></asp:TextBox>
                     <br />
                 </div>
                     <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
@@ -63,7 +63,7 @@
                     <br />
                     <br />
                     <br />
-                    <asp:Label ID="lblTest" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lblTest" runat="server" ForeColor="#FF6600"></asp:Label>
             </form>
        </div>
 </body>
