@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" UnobtrusiveValidationMode="none" CodeFile="Register.aspx.cs" Inherits="LogIn_Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Update.aspx.cs" Inherits="LogIn_Update" %>
 
 <!DOCTYPE html>
 
@@ -100,27 +100,25 @@
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label10" runat="server" Text="Buisness Phone: "></asp:Label>
-                    <asp:TextBox ID="txtBusPhone" CssClass="form-control" runat="server" Width="147px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtBusPhone" CssClass="form-control" runat="server" Width="147px" ForeColor="Red" Enabled="False"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtBusPhone" ErrorMessage="Phone number is invalid, please try again" ForeColor="#FF6600" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" Display="Dynamic"></asp:RegularExpressionValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label11" runat="server" Text="Email: "></asp:Label>
-                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Width="187px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Width="187px" ForeColor="Red" Enabled="False"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ForeColor="#FF6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label12" runat="server" Text="Password: "></asp:Label>
-                    <asp:TextBox ID="txtPass1" type="password" runat="server" CssClass="form-control" Width="183px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtPass1" type="password" runat="server" CssClass="form-control" Width="183px" Enabled="False" ForeColor="Red"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPass1" ErrorMessage="Please enter a password" ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label13" runat="server" Text="Confirm: "></asp:Label>
-                    <asp:TextBox type="password" ID="txtPass2" runat="server" CssClass="form-control" Width="183px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox type="password" ID="txtPass2" runat="server" CssClass="form-control" Width="183px" Enabled="False" ForeColor="Red"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPass2" ErrorMessage="Please confirm your password" ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
-
                 <br/>
-                <asp:Button ID="btnRegister" runat="server" CssClass="btn" Text="Register" OnClick="btnRegister_Click"/>
                 <br/>
             </div>
             <br/>

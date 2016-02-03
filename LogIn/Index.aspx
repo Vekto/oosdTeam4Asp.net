@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head runat="server" >
     <title></title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -31,12 +31,12 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <asp:HyperLink class="navbar-brand" id="HyperLinkGreet" runat="server">Travel Experts</asp:HyperLink>
+                        <asp:HyperLink class="navbar-brand" id="HyperLinkGreet" runat="server" >Travel Experts</asp:HyperLink>
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li> <asp:HyperLink ID="HyperLinkRegister" NavigateUrl="Register.aspx"runat="server">Register</asp:HyperLink></li>
-                        <li> <asp:HyperLink ID="HyperLinkAccount" runat="server">Account</asp:HyperLink></li>                         
+                        <li> <asp:HyperLink ID="HyperLinkRegister" NavigateUrl="Register.aspx" runat="server" >Register</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkAccount" runat="server" >Account</asp:HyperLink></li>                         
                         <li><asp:HyperLink ID="HyperLinkPurchases" runat="server">My Purchases</asp:HyperLink></li> 
                         <li> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
                         <li> <asp:HyperLink ID="HyperLinkLogOut" runat="server" NavigateUrl="LogOut.aspx">Log Out</asp:HyperLink></li>
