@@ -12,6 +12,6 @@ public partial class LogIn_Default : System.Web.UI.Page
         Session.Remove("LoggedIn");
         Session.Remove("CustFirstName");
         Session.Remove("CustLastName");
-        Response.Redirect("~/LogIn/Index.aspx");
+        Response.Redirect("~/Index.aspx");
     }
 }

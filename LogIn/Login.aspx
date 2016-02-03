@@ -48,8 +48,8 @@
                     <br />                   
                     <br />
                 <div class="form-group">
-                    <asp:Label ID="Label2" runat="server" Text="Email:"></asp:Label>
-                    <asp:TextBox class="form-control" ID="txtEmail" runat="server" Width="279px"></asp:TextBox>
+                    <asp:Label ID="Label2" runat="server" Text="User Name:"></asp:Label>
+                    <asp:TextBox class="form-control" ID="txtUserName" runat="server" Width="279px"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <%--<br />--%>

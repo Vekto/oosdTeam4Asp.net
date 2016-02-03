@@ -21,9 +21,9 @@ public partial class _Default : System.Web.UI.Page
         //sql select statement
         string selectStatement = "SELECT CustomerId, CustFirstName, CustLastName " +
                                  "FROM Customers " +
-                                 "WHERE CustEmail = @CustEmail AND Password = @Password";
+                                 "WHERE UserName = @UserName AND Password = @Password";
         SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-        selectCommand.Parameters.AddWithValue("@CustEmail", txtEmail.Text.Trim());
+        selectCommand.Parameters.AddWithValue("@UserName", txtUserName.Text.Trim());
         selectCommand.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
 
         try
@@ -56,14 +56,14 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        if( txtEmail.Text.Trim() != "" && txtPassword.Text.Trim() != "")
+        if( txtUserName.Text.Trim() != "" && txtPassword.Text.Trim() != "")
         {
             ValidateLogin(); //validates that login credentials match, sets session variables
            // SuccessTest();
            if (Session["LoggedIn"] != null) //if login was successful
             {
                 //redirect to index page
-                Response.Redirect("~/LogIn/Index.aspx");
+                Response.Redirect("~/Index.aspx");
             }
             else
             {
