@@ -5,11 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <%--   <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
-    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="Scripts/jquery-1.9.1.min.js"></script>--%>
+  
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
@@ -40,23 +36,28 @@
                     <ul class="nav navbar-nav">    
                         <%--<li><a href="~/Index.aspx">Home</a></li>  --%> 
                         <li> <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li> 
-                        <li> <asp:HyperLink ID="HyperLink1" runat="server">Register</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkRegister" runat="server">Register</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li>
                         <li class="active"> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx" OnClick="HyperLinkLogin_Click">Login</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink></li> 
+                         
                     </ul>
                 </div>
             </nav>  
 
-            <form id="form1" runat="server">
-                
+            <form role="form" id="form1" runat="server">                
                     <br />                   
                     <br />
-                    <asp:TextBox ID="txtEmail" runat="server" Width="279px" ForeColor="Red"></asp:TextBox>
-                    <br />
+                <div class="form-group">
+                    <asp:Label ID="Label2" runat="server" Text="Email:"></asp:Label>
+                    <asp:TextBox class="form-control" ID="txtEmail" runat="server" Width="279px" ForeColor="Red"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <%--<br />--%>
                     <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
                     <br />
-                    <asp:TextBox ID="txtPassword" runat="server" Width="279px"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtPassword" runat="server" Width="279px"></asp:TextBox>
                     <br />
+                </div>
                     <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
                     <br />
                     <br />
@@ -64,21 +65,6 @@
                     <br />
                     <asp:Label ID="lblTest" runat="server" ForeColor="Red"></asp:Label>
             </form>
-
-
-<%--            <form role="form">
-              <div class="form-group">
-                 <asp:Label ID="Label2" runat="server" Text="Email:"></asp:Label>
-                <input type="email" class="form-control" id="email"/>
-              </div>
-              <div class="form-group">
-                <label id="Label3" for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd"/>
-              </div>
-            
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>--%>
-
        </div>
 </body>
 </html>

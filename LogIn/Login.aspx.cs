@@ -10,9 +10,6 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        
-
     }
 
     public bool ValidateLogin()
@@ -62,13 +59,20 @@ public partial class _Default : System.Web.UI.Page
         if( txtEmail.Text.Trim() != "" && txtPassword.Text.Trim() != "")
         {
             ValidateLogin(); //validates that login credentials match, sets session variables
-            SuccessTest();
-            //Server.Transfer("~/LogIn/Index.aspx");
-            Response.Redirect("~/LogIn/Index.aspx");
+           // SuccessTest();
+           if (Session["LoggedIn"] != null) //if login was successful
+            {
+                //redirect to index page
+                Response.Redirect("~/LogIn/Index.aspx");
+            }
+            else
+            {
+                lblTest.Text = "Login failed.  Please check username and password";
+            }            
         }
         else
         {
-            lblTest.Text = "Please fill in all fields";           
+            lblTest.Text = "Please fill in all fields";
         }
     }    
 }
