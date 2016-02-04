@@ -23,7 +23,6 @@ public partial class LogIn_Register : System.Web.UI.Page
         else
         {
             //customize navbar links for user who is not logged in
-
             HyperLinkLogin.Visible = true;
             HyperLinkLogOut.Visible = false;
             HyperLinkRegister.Visible = true;
@@ -33,15 +32,15 @@ public partial class LogIn_Register : System.Web.UI.Page
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        if (txtPass1.Text == txtPass2.Text)
+        if (txtPass1.Text == txtPass2.Text && checkUserName() )
         {
             if (IsValid)
             {
                 SqlConnection conn = TravelExpertsDB.GetConnection();
                 string insertStatement =
                     "INSERT INTO Customers " +
-                    "(CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, Password) " +
-                    "VALUES(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail, @Password)";
+                    "(CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, Password, UserName) " +
+                    "VALUES(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail, @Password, @UserName)";
                 SqlCommand insertCommand =
                     new SqlCommand(insertStatement, conn);
                 insertCommand.Parameters.AddWithValue(
@@ -66,6 +65,8 @@ public partial class LogIn_Register : System.Web.UI.Page
                     "@CustEmail", txtEmail.Text);
                 insertCommand.Parameters.AddWithValue(
                     "@Password", txtPass1.Text);
+                insertCommand.Parameters.AddWithValue(
+                    "@UserName", txtUser.Text);
                 try
                 {
                     conn.Open();
@@ -90,7 +91,28 @@ public partial class LogIn_Register : System.Web.UI.Page
                 Response.Redirect("Index.aspx");
             }
         }
+    }
 
+    private bool checkUserName()
+    {
+        SqlConnection connection = TravelExpertsDB.GetConnection();
 
+        //sql select statement
+        string selectStatement = "SELECT UserName " +
+                                 "FROM Customers " +
+                                 "WHERE UserName = @UserName";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+        selectCommand.Parameters.AddWithValue("@UserName", txtUser.Text.Trim());
+        
+        
+            connection.Open();
+            SqlDataReader reader = selectCommand.ExecuteReader();
+            if (reader.Read()) //while there is data
+            {
+                lblUserName.Visible = true;
+                return false;
+            }
+        
+        return true;
     }
 }

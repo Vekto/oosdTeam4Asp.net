@@ -35,74 +35,112 @@ public partial class LogIn_Update : System.Web.UI.Page
 
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        Button clicked = (Button) sender;
-        string field = "txt" + clicked.ID;
-        TextBox txtToChange = (TextBox)FindControl(field);
+
+
+            Button clicked = (Button) sender;
+            string field = "txt" + clicked.ID;
+            TextBox txtToChange = (TextBox) FindControl(field);
+
+            if (clicked.Text == "Edit" || clicked.Text == "Change Password")
+            {
+
+                if (txtToChange == txtCity)
+                {
+                    txtProv.Enabled = false;
+                    txtProv.Visible = false;
+                    ddlProvinces.Enabled = true;
+                    ddlProvinces.Visible = true;
+                }
+                else if (txtToChange == txtPass1)
+                {
+                    lblpass1.Enabled = true;
+                    lblpass2.Enabled = true;
+                    lblpass1.Visible = true;
+                    lblpass2.Visible = true;
+                    txtPass1.Enabled = true;
+                    txtPass2.Enabled = true;
+                    txtPass1.Visible = true;
+                    txtPass2.Visible = true;
+                    passValidator1.Enabled = true;
+                    passValidator2.Enabled = true;
+                }
+                txtToChange.Enabled = true;
+                clicked.CausesValidation = true;
+                clicked.Text = "Save";
+            }
+            else
+            {
+                if (txtToChange == txtCity)
+                {
+                    txtProv.Enabled = true;
+                    txtProv.Visible = true;
+                    ddlProvinces.Enabled = false;
+                    ddlProvinces.Visible = false;
+                }
+                else if (txtToChange == txtPass1)
+                {
+                    lblpass1.Enabled = false;
+                    lblpass2.Enabled = false;
+                    lblpass1.Visible = false;
+                    lblpass2.Visible = false;
+                    txtPass1.Enabled = false;
+                    txtPass2.Enabled = false;
+                    txtPass1.Visible = false;
+                    txtPass2.Visible = false;
+                    passValidator1.Enabled = false;
+                    passValidator2.Enabled = false;
+                }
+                txtToChange.Enabled = false;
+                clicked.CausesValidation = false;
+                
+                if (clicked.ID == "pass1")
+                {
+                    clicked.Text = "Change Password";
+                savePassword();
+                }
+                else
+                {
+                saveCustomer();
+                clicked.Text = "Edit";
+                }
+            }
         
-        if (clicked.Text =="Edit")
-        {
-            
-            if (txtToChange == txtCity)
-            {
-                txtProv.Enabled = false;
-                txtProv.Visible = false;
-                ddlProvinces.Enabled = true;
-                ddlProvinces.Visible = true;
-            }
-            txtToChange.Enabled = true;
-            clicked.CausesValidation = true;
-            clicked.Text = "Save";
-        }
-        else
-        {
-            if (txtToChange == txtCity)
-            {
-                txtProv.Enabled = true;
-                txtProv.Visible = true;
-                ddlProvinces.Enabled = false;
-                ddlProvinces.Visible = false;
-            }
-            txtToChange.Enabled = false;
-            clicked.CausesValidation = false;
-            saveCustomer();
-            clicked.Text = "Edit";
-        }
 
     }
 
     private void saveCustomer()
     {
-        SqlConnection connection = TravelExpertsDB.GetConnection();
-        string selectString = "Update Customers " +
-                               "SET " +
-                              "CustFirstName = @CustFirstName, " +
-                              "CustLastName = @CustLastName, " +
-                              "CustAddress = @CustAddress, " +
-                              "CustCity = @CustCity, " +
-                              "CustProv = @CustProv, " +
-                              "CustPostal = @CustPostal, " +
-                              "CustCountry = @CustCountry, " +
-                              "CustHomePhone = @CustHomePhone, " +
-                              "CustBusPhone = @CustBusPhone, " +
-                              "CustEmail = @CustEmail " +
-                              "WHERE CustomerId = @CustomerId";
-        SqlCommand selectCommand = new SqlCommand(selectString, connection);
-        selectCommand.Parameters.AddWithValue("@CustFirstName", txtFirstName.Text);
-        selectCommand.Parameters.AddWithValue("@CustLastName", txtLastName.Text);
-        selectCommand.Parameters.AddWithValue("@CustAddress", txtAddress.Text);
-        selectCommand.Parameters.AddWithValue("@CustCity", txtCity.Text);
-        selectCommand.Parameters.AddWithValue("@CustProv", txtProv.Text);
-        selectCommand.Parameters.AddWithValue("@CustPostal", txtPostal.Text);
-        selectCommand.Parameters.AddWithValue("@CustCountry", txtCountry.Text);
-        selectCommand.Parameters.AddWithValue("@CustHomePhone", txtHomePhone.Text);
-        selectCommand.Parameters.AddWithValue("@CustBusPhone", txtBusPhone.Text);
-        selectCommand.Parameters.AddWithValue("@CustEmail", txtEmail.Text);
-        selectCommand.Parameters.AddWithValue("@CustomerId", Session["CustomerID"]);
-        connection.Open();
-        int Count = selectCommand.ExecuteNonQuery();
-        Session["CustFirstName"] = txtFirstName.Text;
-        Session["CustLastName"] = txtLastName.Text;
-        HyperLinkGreet.Text = "Hello, " + Session["CustFirstName"] + "!";
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string selectString = "Update Customers " +
+                                  "SET " +
+                                  "CustFirstName = @CustFirstName, " +
+                                  "CustLastName = @CustLastName, " +
+                                  "CustAddress = @CustAddress, " +
+                                  "CustCity = @CustCity, " +
+                                  "CustProv = @CustProv, " +
+                                  "CustPostal = @CustPostal, " +
+                                  "CustCountry = @CustCountry, " +
+                                  "CustHomePhone = @CustHomePhone, " +
+                                  "CustBusPhone = @CustBusPhone, " +
+                                  "CustEmail = @CustEmail " +
+                                  "WHERE CustomerId = @CustomerId";
+            SqlCommand selectCommand = new SqlCommand(selectString, connection);
+            selectCommand.Parameters.AddWithValue("@CustFirstName", txtFirstName.Text);
+            selectCommand.Parameters.AddWithValue("@CustLastName", txtLastName.Text);
+            selectCommand.Parameters.AddWithValue("@CustAddress", txtAddress.Text);
+            selectCommand.Parameters.AddWithValue("@CustCity", txtCity.Text);
+            selectCommand.Parameters.AddWithValue("@CustProv", txtProv.Text);
+            selectCommand.Parameters.AddWithValue("@CustPostal", txtPostal.Text);
+            selectCommand.Parameters.AddWithValue("@CustCountry", txtCountry.Text);
+            selectCommand.Parameters.AddWithValue("@CustHomePhone", txtHomePhone.Text);
+            selectCommand.Parameters.AddWithValue("@CustBusPhone", txtBusPhone.Text);
+            selectCommand.Parameters.AddWithValue("@CustEmail", txtEmail.Text);
+            selectCommand.Parameters.AddWithValue("@CustomerId", Session["CustomerID"]);
+            connection.Open();
+            int Count = selectCommand.ExecuteNonQuery();
+            Session["CustFirstName"] = txtFirstName.Text;
+            Session["CustLastName"] = txtLastName.Text;
+            HyperLinkGreet.Text = "Hello, " + Session["CustFirstName"] + "!";     
     }
 
     protected void loadCustomer()
@@ -131,4 +169,24 @@ public partial class LogIn_Update : System.Web.UI.Page
         }
 
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Update.aspx");
+    }
+
+    private void savePassword()
+    {
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string selectString = "Update Customers " +
+                              "SET " +
+                              "Password = @Password " +
+                              "WHERE CustomerId = @CustomerId";
+        SqlCommand selectCommand = new SqlCommand(selectString, connection);
+        selectCommand.Parameters.AddWithValue("@Password", txtPass1.Text);
+        selectCommand.Parameters.AddWithValue("@CustomerId", Session["CustomerID"]);
+        connection.Open();
+        int Count = selectCommand.ExecuteNonQuery();
+    }
+
 }

@@ -102,6 +102,12 @@
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Width="187px" ForeColor="black"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ForeColor="#FF6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
+                 <div class="form-group">
+                    <asp:Label ID="Label3" runat="server" Text="UserName: "></asp:Label>
+                    <asp:TextBox ID="txtUser" runat="server" CssClass="form-control" Width="183px" ForeColor="black"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtUser" ErrorMessage="Please enter a UserName" ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
+                     <asp:Label ID="lblUserName" runat="server" Visible="false" Text="UserName is already taken please try another. " ForeColor="red"></asp:Label>
+                </div>
                 <div class="form-group">
                     <asp:Label ID="Label12" runat="server" Text="Password: "></asp:Label>
                     <asp:TextBox ID="txtPass1" type="password" runat="server" CssClass="form-control" Width="183px" ForeColor="black"></asp:TextBox>
@@ -112,6 +118,7 @@
                     <asp:TextBox type="password" ID="txtPass2" runat="server" CssClass="form-control" Width="183px" ForeColor="black"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPass2" ErrorMessage="Please confirm your password" ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPass1" ControlToValidate="txtPass2" Enabled="true" ForeColor="#FF6600" ErrorMessage="Passwords Must Match!"></asp:CompareValidator>
 
                 <br/>
                 <asp:Button ID="btnRegister" runat="server" CssClass="btn" Text="Register" OnClick="btnRegister_Click"/>
