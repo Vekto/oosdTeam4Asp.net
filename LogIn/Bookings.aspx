@@ -23,6 +23,25 @@
                 <p>Leading the way to your destination.</p>
              </div>
 
+           <%--Heidi--%>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <asp:HyperLink class="navbar-brand" id="HyperLinkGreet" runat="server" >Travel Experts</asp:HyperLink>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><asp:HyperLink ID="hlHome" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkRegister" NavigateUrl="Register.aspx" runat="server" >Register</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkAccount" runat="server" NavigateUrl="Update.aspx">Account</asp:HyperLink></li>                         
+                        <li class="active"><asp:HyperLink ID="HyperLinkPurchases" NavigateUrl="Bookings.aspx" runat="server">My Purchases</asp:HyperLink></li> 
+                        <li> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkLogOut" runat="server" NavigateUrl="LogOut.aspx">Log Out</asp:HyperLink></li>
+                      
+                    </ul>
+                </div>
+            </nav> 
+            <%--end Heidi--%>
+
             <div class="page-header">
                 <h2 class="text-primary"><small>Invoices for </small><asp:Label ID="CustomerNameLabel" runat="server"/></h2>
             </div>
