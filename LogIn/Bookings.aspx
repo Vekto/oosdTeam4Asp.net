@@ -5,37 +5,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Travel Experts | Invoices</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="BookingsForm" runat="server">
+        <asp:ObjectDataSource ID="BookingInvoiceOds" runat="server" SelectMethod="GetInvoicesOfCustomer" TypeName="BookingInvoiceDataSource">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="-2147483648" Name="id" SessionField="CustomerID" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
+        
+
         <div class="container">
             <div class="jumbotron">
                 <img alt="" class="logo" src="Images/logo.jpg" />   
                 <p>Experts in experience design.</p>
              </div>
 
-
-            <div>
-                <h2>Invoices for <asp:Label ID="CustomerNameLabel" runat="server"/></h2>
+            <div class="page-header">
+                <h2 class="text-primary"><small>Invoices for </small><asp:Label ID="CustomerNameLabel" runat="server"/></h2>
             </div>
 
-            <asp:ObjectDataSource ID="BookingInvoiceOds" runat="server" SelectMethod="GetInvoicesOfCustomer" TypeName="BookingInvoiceDataSource">
-                <SelectParameters>
-                    <asp:SessionParameter DefaultValue="-2147483648" Name="id" SessionField="CustomerID" Type="Int32" />
-                </SelectParameters>
-            </asp:ObjectDataSource>
-            
             <asp:ListView ID="InvoiceListView" runat="server" DataSourceID="BookingInvoiceOds" OnDataBound="InvoiceListView_DataBound" OnDataBinding="InvoiceListView_DataBinding" OnItemDataBound="InvoiceListView_ItemDataBound">
                 <LayoutTemplate>
-                    <div id="itemPlaceholderContainer" runat="server">
+                    <div class="well" id="itemPlaceholderContainer" runat="server">
                         <span runat="server" id="itemPlaceholder" />
-                    </div>
-                    <div style="">
-                        
                     </div>
                 </LayoutTemplate>
 
@@ -44,117 +39,106 @@
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
-                    <table style="width: 600pt; border: 3pt solid black; padding: 5pt;">
-                        <tr>
-                            <td>
-                                Invoice# <b><asp:Label ID="BookingCodeLabel" runat="server" Text='<%# Eval("BookingCode") %>' /></b>
-                            </td>
-                            <td style="text-align: right;">
-                                <b><asp:Label ID="BookingDateLabel" runat="server" Text='<%# Eval("BookingDate", "{0:MMM dd, yyyy}") %>' /></b>
-                            </td>
-                        </tr>
-                        <%--<tr>
-                            <td>
-                                left1
-                            </td>
-                            <td style="text-align: right;">
-                                right1
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                left2
-                            </td>
-                            <td style="text-align: right;">
-                                right2
-                            </td>
-                        </tr>--%>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-title">
+                            <div class="row">
+                                <div class="col-xs-6 text-left">
+                                    <span class="hidden-xs">Invoice#:</span>
+                                    <strong>
+                                        <asp:Label ID="BookingCodeLabel" runat="server" Text='<%# Eval("BookingCode") %>' />
+                                    </strong>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <asp:Label ID="BookingDateLabel" runat="server" Text='<%# Eval("BookingDate", "{0:MMM dd, yyyy}") %>' />
+                                </div>
+                            </div>
+                        </div>
 
-                        
-
-                        <tr>
-                            <td rowspan="2">
-                                <table style="width: 600pt; border: 1pt solid green; padding: 5pt;">
-                                    <tr>
-                                        <td>
-                                            Destination:
-                                            <asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' />
-                                            <br />
-                                            From
-                                            <b><asp:Label ID="TripStartLabel" runat="server" Text='<%# Eval("TripStart", "{0:MMM dd, yyyy}") %>' /></b>
-                                            to
-                                            <b><asp:Label ID="TripEndLabel" runat="server" Text='<%# Eval("TripEnd", "{0:MMM dd, yyyy}") %>' /></b>
-                                        </td>
-                                        <td style="text-align: right; width: 100%">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-6 text-left">
+                                    <h4>
+                                        <span class="hidden-xs small">Destination</span>
+                                        <span class="text-primary"><asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' /></span>
+                                    </h4>
+                                    <h4 class="hidden-xs">
+                                        <small>From</small>
+                                        <strong><asp:Label ID="TripStartLabel" runat="server" Text='<%# Eval("TripStart", "{0:MMM dd, yyyy}") %>' /></strong>
+                                        <small>to</small>
+                                        <strong><asp:Label ID="TripEndLabel" runat="server" Text='<%# Eval("TripEnd", "{0:MMM dd, yyyy}") %>' /></strong>
+                                    </h4>
+                                    <h4 class="visible-xs small">
+                                        <strong><asp:Label ID="TripStartSmallLabel" runat="server" Text='<%# Eval("TripStart", "{0:MMM dd, yyyy}") %>' /></strong>
+                                        <br />&rarr;
+                                        <strong><asp:Label ID="TripEndSmallLabel" runat="server" Text='<%# Eval("TripEnd", "{0:MMM dd, yyyy}") %>' /></strong>
+                                    </h4>
+                                </div>
+                                
+                                <div class="col-xs-6 text-right">
+                                    <strong>
+                                        <span class="label label-info h4">
                                             <asp:Label ID="BookingTypeLabel" runat="server" Text='<%# Eval("BookingType") %>' />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            
-                                        </td>
-                                        <td style="text-align: right;">
-                                            
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                    
-                    <br /><br /><br /><br />
-                    <span style="">
-                        Invoice: 
-                        <asp:Label ID="BookingCodeLabel2" runat="server" Text='<%# Eval("BookingCode") %>' />
-                         | 
-                        <asp:Label ID="BookingDateLabel2" runat="server" Text='<%# Eval("BookingDate", "{0:MMM dd, yyyy}") %>' />
-                        <br />
-                        
-                        <asp:Label ID="BookingTypeLabel2" runat="server" Text='<%# Eval("BookingType") %>' />
-                        <br />
-                        
-                        Destination:
-                        <asp:Label ID="DestinationLabel2" runat="server" Text='<%# Eval("Destination") %>' />
-                        <br />
-                        
-                        From
-                        <b><asp:Label ID="TripStartLabel2" runat="server" Text='<%# Eval("TripStart", "{0:MMM dd, yyyy}") %>' /></b>
-                         to 
-                        <b><asp:Label ID="TripEndLabel2" runat="server" Text='<%# Eval("TripEnd", "{0:MMM dd, yyyy}") %>' /></b>
-                        <br /><br />
-                        
+                                        </span>
+                                    </strong>
+                                </div>
+                            </div>
 
-                        Flight:
-                        <asp:Label ID="DescriptionLabel2" runat="server" Text='<%# Eval("Description") %>' />
-                        <br />
-                        Passengers:
-                        <asp:Label ID="TravelerCountLabel2" runat="server" Text='<%# Eval("TravelerCount") %>' />
-                        <br /><br />
-                        
+                            <div class="row">
+                                <div class="col-xs-6 text-left">
+                                    <h4 class="hidden-xs">
+                                        <small>Route</small>
+                                        <strong><asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' /></strong>
+                                    </h4>
+                                    <h5 class="visible-xs text-left">
+                                        <asp:Label ID="DescriptionSmallLabel" runat="server" Text='<%# Eval("Description") %>' />
+                                    </h5>
 
-                        Cost:
-                        <asp:Label ID="BasePriceLabel2" runat="server" Text='<%# Eval("BasePrice", "{0:C2}") %>' />
-                        <br />
-                        Commission:
-                        <asp:Label ID="AgencyCommissionLabel2" runat="server" Text='<%# Eval("AgencyCommission", "{0:C2}") %>' />
-                        <br />
-                        <asp:Label ID="FeeNameLabel2" runat="server" Text='<%# Eval("FeeName") %>' />
-                        <asp:Label ID="FeeAmountLabel2" runat="server" Text='<%# Eval("FeeAmount", "{0:C2}") %>' />
-                        <br />
-                        
+                                    <h4 class="text-left">
+                                        <small>Passengers</small>
+                                        <strong><asp:Label ID="TravelerCountLabel" runat="server" Text='<%# Eval("TravelerCount") %>' /></strong>
+                                    </h4>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <td style="border-top: none;" class="text-right">Base Cost</td>
+                                            <td style="border-top: none;" class="text-left"><asp:Label ID="BasePriceLabel" runat="server" Text='<%# Eval("BasePrice", "{0:C2}") %>' /></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="border-top: none;" class="text-right">Commission</td>
+                                            <td style="border-top: none;" class="text-left"><asp:Label ID="AgencyCommissionLabel" runat="server" Text='<%# Eval("AgencyCommission", "{0:C2}") %>' /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none;" class="text-right"><asp:Label ID="FeeNameLabel" runat="server" Text='<%# Eval("FeeName") %>' /></td>
+                                            <td style="border-top: none;" class="text-left"><asp:Label ID="FeeAmountLabel" runat="server" Text='<%# Eval("FeeAmount", "{0:C2}") %>' /></td>
+                                        </tr>
 
-                        TotalCost:
-                        <asp:Label ID="TotalCostLabel2" runat="server" Text='<%# Eval("TotalCost", "{0:C2}") %>' />
-                        <br />
-                        <br />
-                    </span>
+                                        <tr>
+                                            <td class="text-right"></td>
+                                            <td class="text-left mark"><strong><asp:Label ID="TotalCostLabel" runat="server" Text='<%# Eval("TotalCost", "{0:C2}") %>' /></strong></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </ItemTemplate>
             </asp:ListView>
             
-        </div>
-        <div>
-            <p>Total: <asp:Label ID="TotalLabel" runat="server"/></p>
+            <div class="well-sm bg-info text-right">
+                <h2>
+                    <strong class="small">All Invoice Total</strong>
+                    <br/>
+                    <asp:Label ID="TotalLabel" runat="server"/>
+                </h2>
+            </div>
         </div>
     </form>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
 </body>
 </html>
