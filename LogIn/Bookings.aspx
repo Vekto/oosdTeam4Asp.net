@@ -1,4 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Bookings.aspx.cs" Inherits="Bookings" %>
+﻿<%-- 
+Author:  Devin Ireland 
+Project: LogIn
+Date: 2016-02
+--%>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Bookings.aspx.cs" Inherits="Bookings" %>
 
 <!DOCTYPE html>
 
