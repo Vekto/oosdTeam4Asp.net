@@ -20,7 +20,7 @@
         <div class="container">
             <div class="jumbotron">
                 <img alt="" class="logo" src="Images/logo.jpg" />   
-                <p>Experts in experience design.</p>
+                <p>Leading the way to your destination.</p>
              </div>
 
             <div class="page-header">
