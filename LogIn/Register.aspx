@@ -47,22 +47,22 @@
 
                 <div class="form-group">
                     <asp:Label ID="Label4" runat="server" Text="First Name: "></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="txtFirstName" runat="server" Width="279px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control" ID="txtFirstName" runat="server" Width="279px" ForeColor="black"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="firstNameValidator1" runat="server" ControlToValidate="txtFirstName" ErrorMessage="First name is a required field." ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label1" runat="server" Text="Last Name: "></asp:Label>
-                    <asp:TextBox ID="txtLastName" CssClass="form-control" runat="server" Width="279px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtLastName" CssClass="form-control" runat="server" Width="279px" ForeColor="black"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLastName" ErrorMessage="Last name is a required field." ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Address Name: "></asp:Label>
-                    <asp:TextBox ID="txtAddress" CssClass="form-control" runat="server" Width="279px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtAddress" CssClass="form-control" runat="server" Width="279px" ForeColor="black"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtAddress" ErrorMessage="Address is a required field." ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-inline">
                     <asp:Label ID="Label5" runat="server" Text="City: "></asp:Label>
-                    <asp:TextBox type="text" ID="txtCity" CssClass="form-control" runat="server" Width="125px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox type="text" ID="txtCity" CssClass="form-control" runat="server" Width="125px" ForeColor="black"></asp:TextBox>
 
                     <asp:Label ID="Label6" runat="server" Text="Province: "></asp:Label>
                     <asp:DropDownList ID="ddlProvinces" CssClass="dropdown" runat="server">
@@ -81,12 +81,12 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCity" ErrorMessage="City is a required field." ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 <div class="form-group">
                     <asp:Label ID="Label8" runat="server" Text="Country: "></asp:Label>
-                    <asp:TextBox ID="txtCountry" CssClass="form-control" runat="server" Width="147px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtCountry" CssClass="form-control" runat="server" Width="147px" ForeColor="black"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtCountry" ErrorMessage="Country is a required field" ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label7" runat="server" Text="Postal Code: "></asp:Label>
-                    <asp:TextBox ID="txtPostal" CssClass="form-control" runat="server" Width="124px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtPostal" CssClass="form-control" runat="server" Width="124px" ForeColor="black"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPostal" ErrorMessage="Please Enter a Valid Postal Code" ForeColor="#FF6600" ValidationExpression="[A-Za-z]{1}\d{1}[A-Za-z][ -?]*\d{1}[A-Za-z]{1}\d{1}" Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtPostal" Display="Dynamic" ErrorMessage="Postal code is a required field." ForeColor="#FF6600"></asp:RequiredFieldValidator>
                 </div>
@@ -94,28 +94,28 @@
             <div class="col-lg-3">
                 <div class="form-group">
                     <asp:Label ID="Label9" runat="server" Text="Home Phone: "></asp:Label>
-                    <asp:TextBox ID="txtHomePhone" CssClass="form-control" runat="server" Width="147px" ForeColor="Red"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtHomePhone" Display="Dynamic" ErrorMessage="Please input phone number as 000-000-0000." ForeColor="#FF6600" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
+                    <asp:TextBox ID="txtHomePhone" CssClass="form-control" runat="server" Width="147px" ForeColor="black"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtHomePhone" Display="Dynamic" ErrorMessage="Please input phone number as 000-000-0000." ForeColor="#FF6600" ValidationExpression="(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtHomePhone" Display="Dynamic" ErrorMessage="Home phone is a required field." ForeColor="#FF6600"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label10" runat="server" Text="Buisness Phone: "></asp:Label>
-                    <asp:TextBox ID="txtBusPhone" CssClass="form-control" runat="server" Width="147px" ForeColor="Red"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtBusPhone" ErrorMessage="Phone number is invalid, please try again" ForeColor="#FF6600" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:TextBox ID="txtBusPhone" CssClass="form-control" runat="server" Width="147px" ForeColor="black"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtBusPhone" ErrorMessage="Phone number is invalid, please try again" ForeColor="#FF6600" ValidationExpression="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" Display="Dynamic"></asp:RegularExpressionValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label11" runat="server" Text="Email: "></asp:Label>
-                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Width="187px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Width="187px" ForeColor="black"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ForeColor="#FF6600" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label12" runat="server" Text="Password: "></asp:Label>
-                    <asp:TextBox ID="txtPass1" type="password" runat="server" CssClass="form-control" Width="183px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox ID="txtPass1" type="password" runat="server" CssClass="form-control" Width="183px" ForeColor="black"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPass1" ErrorMessage="Please enter a password" ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <asp:Label ID="Label13" runat="server" Text="Confirm: "></asp:Label>
-                    <asp:TextBox type="password" ID="txtPass2" runat="server" CssClass="form-control" Width="183px" ForeColor="Red"></asp:TextBox>
+                    <asp:TextBox type="password" ID="txtPass2" runat="server" CssClass="form-control" Width="183px" ForeColor="black"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPass2" ErrorMessage="Please confirm your password" ForeColor="#FF6600" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
 
