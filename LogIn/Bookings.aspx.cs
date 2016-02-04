@@ -29,9 +29,9 @@ public partial class Bookings : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         // TEST CODE: Dummy customer for testing
-        Session["CustFirstName"] = "Dummy";
-        Session["CustLastName"] = "Customer";
-        Session["CustomerID"] = "122";
+        //Session["CustFirstName"] = "Dummy";
+        //Session["CustLastName"] = "Customer";
+        //Session["CustomerID"] = "133";
         // -------------------------------------
 
         CustomerNameLabel.Text = Customer != null ? Customer.ToString() : "nobody";
@@ -54,19 +54,6 @@ public partial class Bookings : System.Web.UI.Page
     protected void InvoiceListView_DataBound(object sender, EventArgs e)
     {
         TotalLabel.Text = TotalAllInvoices.ToString("C2");
-
-        //var listView = sender as ListView;
-        //if (listView == null) throw new InvalidOperationException("Sender is not a ListView");
-
-        // Calculate total after BookingInvoices have been bound
-        //var total = 0M;
-        //foreach (var invoice in listView.Items
-        //    .Select(lvi => (BookingInvoice)lvi.DataItem)
-        //    .Where(i => i != null))
-        //{
-        //    total += invoice.TotalCost;
-        //}
-        //TotalAllInvoices = total;
     }
 
     #endregion

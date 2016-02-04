@@ -35,7 +35,7 @@
                 </LayoutTemplate>
 
                 <EmptyDataTemplate>
-                    <span>No invoices yet, order some vacation packages!</span>
+                    <em>No invoices yet, order some vacation packages!</em>
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
@@ -74,12 +74,12 @@
                                     </h4>
                                 </div>
                                 
-                                <div class="col-xs-6 text-right">
-                                    <strong>
-                                        <span class="label label-info h4">
+                                <div class="col-xs-6 text-right h4">
+                                    <span class='<%# Eval("GetBookingTypeStyleClasses") %>'>
+                                        <strong>
                                             <asp:Label ID="BookingTypeLabel" runat="server" Text='<%# Eval("BookingType") %>' />
-                                        </span>
-                                    </strong>
+                                        </strong>
+                                    </span>
                                 </div>
                             </div>
 
@@ -129,7 +129,7 @@
             
             <div class="well-sm bg-info text-right">
                 <h2>
-                    <strong class="small">All Invoice Total</strong>
+                    <strong class="small">All Invoices Total</strong>
                     <br/>
                     <asp:Label ID="TotalLabel" runat="server"/>
                 </h2>
