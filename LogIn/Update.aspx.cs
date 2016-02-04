@@ -11,9 +11,21 @@ public partial class LogIn_Update : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (Session["Loggedin"] != null || Session["CustomerID"] != null)
-        { 
-            loadCustomer();
+        {
+            if (!IsPostBack)
+            {
+                // put codes here
+                loadCustomer();
+            }
+            //customize navbar links and text for logged in user
+                HyperLinkRegister.Text = "Account";
+                HyperLinkGreet.Text = "Hello, " + Session["CustFirstName"] + "!";
+                HyperLinkLogin.Visible = false;
+                HyperLinkLogOut.Visible = true;
+                HyperLinkRegister.Visible = false;
+                HyperLinkAccount.Visible = true;
         }
         else
         {
@@ -52,9 +64,45 @@ public partial class LogIn_Update : System.Web.UI.Page
             }
             txtToChange.Enabled = false;
             clicked.CausesValidation = false;
+            saveCustomer();
             clicked.Text = "Edit";
         }
 
+    }
+
+    private void saveCustomer()
+    {
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string selectString = "Update Customers " +
+                               "SET " +
+                              "CustFirstName = @CustFirstName, " +
+                              "CustLastName = @CustLastName, " +
+                              "CustAddress = @CustAddress, " +
+                              "CustCity = @CustCity, " +
+                              "CustProv = @CustProv, " +
+                              "CustPostal = @CustPostal, " +
+                              "CustCountry = @CustCountry, " +
+                              "CustHomePhone = @CustHomePhone, " +
+                              "CustBusPhone = @CustBusPhone, " +
+                              "CustEmail = @CustEmail " +
+                              "WHERE CustomerId = @CustomerId";
+        SqlCommand selectCommand = new SqlCommand(selectString, connection);
+        selectCommand.Parameters.AddWithValue("@CustFirstName", txtFirstName.Text);
+        selectCommand.Parameters.AddWithValue("@CustLastName", txtLastName.Text);
+        selectCommand.Parameters.AddWithValue("@CustAddress", txtAddress.Text);
+        selectCommand.Parameters.AddWithValue("@CustCity", txtCity.Text);
+        selectCommand.Parameters.AddWithValue("@CustProv", txtProv.Text);
+        selectCommand.Parameters.AddWithValue("@CustPostal", txtPostal.Text);
+        selectCommand.Parameters.AddWithValue("@CustCountry", txtCountry.Text);
+        selectCommand.Parameters.AddWithValue("@CustHomePhone", txtHomePhone.Text);
+        selectCommand.Parameters.AddWithValue("@CustBusPhone", txtBusPhone.Text);
+        selectCommand.Parameters.AddWithValue("@CustEmail", txtEmail.Text);
+        selectCommand.Parameters.AddWithValue("@CustomerId", Session["CustomerID"]);
+        connection.Open();
+        int Count = selectCommand.ExecuteNonQuery();
+        Session["CustFirstName"] = txtFirstName.Text;
+        Session["CustLastName"] = txtLastName.Text;
+        HyperLinkGreet.Text = "Hello, " + Session["CustFirstName"] + "!";
     }
 
     protected void loadCustomer()
@@ -68,6 +116,7 @@ public partial class LogIn_Update : System.Web.UI.Page
         SqlDataReader reader = selectCommand.ExecuteReader();
         if (reader.Read())
         {
+
             txtFirstName.Text = reader["CustFirstName"].ToString();
             txtLastName.Text = reader["CustLastName"].ToString();
             txtAddress.Text = reader["CustAddress"].ToString();

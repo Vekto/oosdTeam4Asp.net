@@ -16,28 +16,22 @@
         <img alt="" class="logo" src="Images/logo.jpg"/>
         <p>Experts in experience design.</p>
     </div>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <asp:HyperLink class="navbar-brand" ID="HyperLink4" runat="server" NavigateUrl="Index.aspx">Travel Experts</asp:HyperLink>
-            </div>
-            <ul class="nav navbar-nav">
-                <%--<li><a href="~/Index.aspx">Home</a></li>  --%>
-                <li>
-                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink>
-                </li>
-                <li class="active">
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Register.aspx">Register</asp:HyperLink>
-                </li>
-                <li>
-                    <asp:HyperLink ID="HyperLink3" runat="server">My Purchases</asp:HyperLink>
-                </li>
-                <li>
-                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <asp:HyperLink class="navbar-brand" id="HyperLinkGreet" runat="server" >Travel Experts</asp:HyperLink>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><asp:HyperLink ID="hlHome" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li>
+                        <li class="active"> <asp:HyperLink ID="HyperLinkRegister" NavigateUrl="Register.aspx" runat="server" >Register</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkAccount" runat="server" NavigateUrl="Update.aspx" >Account</asp:HyperLink></li>                         
+                        <li><asp:HyperLink ID="HyperLinkPurchases" NavigateUrl="Bookings.aspx" runat="server">My Purchases</asp:HyperLink></li> 
+                        <li> <asp:HyperLink ID="HyperLinkLogin" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
+                        <li> <asp:HyperLink ID="HyperLinkLogOut" runat="server" NavigateUrl="LogOut.aspx">Log Out</asp:HyperLink></li>
+                      
+                    </ul>
+                </div>
+            </nav>
     <div class="col-lg-2"></div>
     <div class="col-lg-8 panel panel-default">
         <form role="form" id="RegisterForm" runat="server">
