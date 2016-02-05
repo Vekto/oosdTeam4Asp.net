@@ -24,7 +24,7 @@ public static class BookingInvoiceDataSource
         using (var conn = TravelExpertsDB.GetConnection())
         {
             const string sql =
-                "SELECT bd.BookingDetailId, b.BookingDate, b.BookingNo, b.TravelerCount, t.TTName, bd.TripStart, bd.TripEnd, bd.[Description], bd.Destination, bd.BasePrice, bd.AgencyCommission, f.FeeName, f.FeeAmt" +
+                "SELECT bd.BookingDetailId, b.BookingDate, b.BookingNo, b.TravelerCount, t.TTName, bd.TripStart, bd.TripEnd, bd.[Description], bd.Destination, (bd.BasePrice + bd.AgencyCommission) AS 'Price', f.FeeName, f.FeeAmt" +
                 " FROM BookingDetails bd, Bookings b, Fees f, TripTypes t" +
                 " WHERE bd.BookingId=b.BookingId AND bd.FeeId= f.FeeId AND b.TripTypeId=t.TripTypeId AND b.CustomerId=@CustomerId" +
                 " ORDER BY b.BookingDate";
@@ -49,10 +49,10 @@ public static class BookingInvoiceDataSource
                         TripEnd = reader.GetDateTime(6),
                         Description = reader.GetString(7),
                         Destination = reader.GetString(8),
-                        BasePrice = reader.GetDecimal(9),
-                        AgencyCommission = reader.GetDecimal(10),
-                        FeeName = reader.GetString(11),
-                        FeeAmount = reader.GetDecimal(12)
+                        Price = reader.GetDecimal(9), // base price + commisssion
+                        //AgencyCommission = reader.GetDecimal(10),
+                        FeeName = reader.GetString(10),
+                        FeeAmount = reader.GetDecimal(11)
                     });
                 }
                 return result;

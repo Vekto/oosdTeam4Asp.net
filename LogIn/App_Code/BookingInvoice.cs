@@ -23,13 +23,12 @@ public class BookingInvoice
     public DateTime TripEnd { get; set; } // BookingDetails
     public string Description { get; set; } // BookingDetails
     public string Destination { get; set; } // BookingDetails
-    public decimal BasePrice { get; set; } // BookingDetails
-    public decimal AgencyCommission { get; set; } // BookingDetails
+    public decimal Price { get; set; } // BookingDetails (BasePrice + AgencyCommission)
 
     public string FeeName { get; set; } // Fees
     public decimal FeeAmount { get; set; } // Fees
 
-    public decimal TotalCost { get { return FeeAmount + BasePrice + AgencyCommission; } }
+    public decimal TotalCost { get { return FeeAmount + Price; } }
 
     #region Refactor & Remove This
 

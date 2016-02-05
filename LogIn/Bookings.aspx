@@ -125,14 +125,10 @@ Date: 2016-02
                                 <div class="col-xs-12 col-sm-4 col-sm-offset-2">
                                     <table class="table table-condensed">
                                         <tr>
-                                            <td style="border-top: none;" class="text-right">Base Cost</td>
-                                            <td style="border-top: none;" class="text-left"><asp:Label ID="BasePriceLabel" runat="server" Text='<%# Eval("BasePrice", "{0:C2}") %>' /></td>
+                                            <td style="border-top: none;" class="text-right">Price</td>
+                                            <td style="border-top: none;" class="text-left"><asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price", "{0:C2}") %>' /></td>
                                         </tr>
                                         
-                                        <tr>
-                                            <td style="border-top: none;" class="text-right">Commission</td>
-                                            <td style="border-top: none;" class="text-left"><asp:Label ID="AgencyCommissionLabel" runat="server" Text='<%# Eval("AgencyCommission", "{0:C2}") %>' /></td>
-                                        </tr>
                                         <tr>
                                             <td style="border-top: none;" class="text-right"><asp:Label ID="FeeNameLabel" runat="server" Text='<%# Eval("FeeName") %>' /></td>
                                             <td style="border-top: none;" class="text-left"><asp:Label ID="FeeAmountLabel" runat="server" Text='<%# Eval("FeeAmount", "{0:C2}") %>' /></td>
