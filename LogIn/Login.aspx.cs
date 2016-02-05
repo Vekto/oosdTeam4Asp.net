@@ -38,7 +38,7 @@ public partial class _Default : System.Web.UI.Page
         SqlConnection connection = TravelExpertsDB.GetConnection();
 
         //sql select statement
-        string selectStatement = "SELECT CustomerId, CustFirstName, CustLastName " +
+        string selectStatement = "SELECT CustomerId, CustFirstName, CustLastName, UserName " + // Devin: added UserName
                                  "FROM Customers " +
                                  "WHERE UserName = @UserName AND Password = @Password";
         SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
@@ -54,6 +54,7 @@ public partial class _Default : System.Web.UI.Page
                 Session["CustomerID"] = reader["CustomerID"].ToString();
                 Session["CustFirstName"] = reader["CustFirstName"].ToString();
                 Session["CustLastName"]= reader["CustLastName"].ToString();
+                Session["UserName"] = reader["UserName"].ToString(); // Devin: added UserName
                 Session["LoggedIn"] = "true";
             }
         }

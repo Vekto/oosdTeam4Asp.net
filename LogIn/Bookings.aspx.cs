@@ -57,7 +57,6 @@ public partial class Bookings : System.Web.UI.Page
             HyperLinkAccount.Visible = false;
         }
         //end of Author: Heidi
-
     }
 
     protected void InvoiceListView_DataBinding(object sender, EventArgs e)
@@ -92,7 +91,8 @@ public partial class Bookings : System.Web.UI.Page
                 ? customerId
                 : int.MinValue,
             FirstName = Session["CustFirstName"] as string,
-            LastName = Session["CustLastName"] as string
+            LastName = Session["CustLastName"] as string,
+            Username = Session["UserName"] as string
         };
     }
 

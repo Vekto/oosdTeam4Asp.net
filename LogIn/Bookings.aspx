@@ -9,7 +9,7 @@ Date: 2016-02
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Travel Experts | Invoices</title>
+    <title><%= Session["Username"] %> | Invoices</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
