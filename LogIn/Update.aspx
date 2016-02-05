@@ -111,7 +111,7 @@
                     <asp:Button ID="Email" runat="server" CssClass="btn-warning" Text="Edit" OnClick="btnEdit_Click"/>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ForeColor="#FF6600" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}\s*$"></asp:RegularExpressionValidator>
                 </div><br/>
-                <asp:Button ID="pass1" runat="server" CssClass="btn-warning" Text="Change Password" OnClick="btnEdit_Click"/>
+                
                 <div class="form-inline">
                     <asp:Label ID="lblpass1" runat="server" Text="Password: " visible="false" enabled="false"></asp:Label><br/>
                     <asp:TextBox ID="txtPass1" type="password" runat="server" CssClass="form-control"  Width="183px" Enabled="False" Visible="False" ForeColor="black"></asp:TextBox>
@@ -123,6 +123,7 @@
                     <asp:RequiredFieldValidator ID="passValidator2" runat="server" ControlToValidate="txtPass2" ErrorMessage="Please confirm your password" ForeColor="#FF6600" Display="Dynamic" Enabled="False"></asp:RequiredFieldValidator><br/>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPass1" ControlToValidate="txtPass2" Enabled="true" ForeColor="Red" ErrorMessage="Passwords Must Match!"></asp:CompareValidator>
                 </div>
+                <asp:Button ID="pass1" runat="server" CssClass="btn-warning" Text="Change Password" OnClick="btnEdit_Click"/>
                 <br/>
                 <br/>
                 <asp:Button ID="btnCancel" runat="server" CssClass="btn-warning" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click"/>

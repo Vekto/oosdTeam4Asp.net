@@ -33,6 +33,11 @@ public partial class LogIn_Update : System.Web.UI.Page
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void btnEdit_Click(object sender, EventArgs e)
     {
 
@@ -97,11 +102,14 @@ public partial class LogIn_Update : System.Web.UI.Page
                 {
                     clicked.Text = "Change Password";
                 savePassword();
+
+
                 }
                 else
                 {
                 saveCustomer();
                 clicked.Text = "Edit";
+                Response.Redirect("Update.aspx");
                 }
             }
         
@@ -140,7 +148,8 @@ public partial class LogIn_Update : System.Web.UI.Page
             int Count = selectCommand.ExecuteNonQuery();
             Session["CustFirstName"] = txtFirstName.Text;
             Session["CustLastName"] = txtLastName.Text;
-            HyperLinkGreet.Text = "Hello, " + Session["CustFirstName"] + "!";     
+            HyperLinkGreet.Text = "Hello, " + Session["CustFirstName"] + "!";
+             
     }
 
     protected void loadCustomer()
